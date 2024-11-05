@@ -1,0 +1,29 @@
+import random
+
+# Dictionary to store bars and restaurants
+places = {
+    "Bar du Coin": {"type": "bar", "hours": "18h-20h"},
+    "Le Bistrot": {"type": "restaurant", "hours": "20h-22h30"},
+    "La Taverne": {"type": "bar", "hours": "23h onwards"},
+    # Add 97 more bars and restaurants here...
+}
+
+# Function to generate a trio
+def generate_trio():
+    trio = []
+    trio.append(random.choice([place for place in places.values() if place["type"] == "bar" and place["hours"] == "18h-20h"]))
+    trio.append(random.choice([place for place in places.values() if place["type"] == "restaurant" and place["hours"] == "20h-22h30"]))
+    trio.append(random.choice([place for place in places.values() if place["type"] == "bar" and place["hours"] == "23h onwards"]))
+
+    # Assign a random fun name to the trio
+    trio_names = ["Nuit Magique", "Soirée Inoubliable", "Nantes by Night", "Vibes du Jeudi", "Week-end Explosif"]
+    trio_name = random.choice(trio_names)
+
+    return trio, trio_name
+
+# Example usage
+trio, name = generate_trio()
+print(f"Voici votre soirée {name} :")
+print(f"- {trio[0]['name']} ({trio[0]['hours']})")
+print(f"- {trio[1]['name']} ({trio[1]['hours']})")
+print(f"- {trio[2]['name']} ({trio[2]['hours']})")
